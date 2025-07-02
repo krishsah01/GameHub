@@ -34,50 +34,51 @@ npm run preview
 
 ## Deployment
 
-This project is configured for deployment to GitHub Pages using GitHub Actions. 
+This project is configured for deployment to GitHub Pages using GitHub Actions.
 
-### ⚠️ **Important: GitHub Pages Setup Required**
+### 🚨 Quick Setup for GitHub Pages
 
-Before the deployment will work, you need to enable GitHub Pages for your repository:
+**Most Common Issue**: If you see "Resource not accessible by integration" error:
 
-#### Step 1: Enable GitHub Pages
-1. Go to your repository on GitHub
-2. Click on **Settings** tab
-3. Scroll down to **Pages** section in the left sidebar
-4. Under **Source**, select **"GitHub Actions"**
-5. Save the changes
+1. **Enable GitHub Pages** in your repository:
+   - Go to Settings → Pages
+   - Set Source to **"GitHub Actions"**
+   - Save changes
 
-#### Step 2: Trigger Deployment
-Once GitHub Pages is enabled, the deployment workflow will automatically trigger when you:
-- Push to the `main` branch
-- Manually trigger it from the Actions tab
+2. **Push your changes**:
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
 
-#### Step 3: Access Your Site
-After successful deployment, your site will be available at:
-```
-https://[your-username].github.io/GameHub/
+3. **Monitor deployment** in the Actions tab
+
+### Alternative Deployment Method
+
+If the main workflow fails:
+```bash
+npm run switch-deploy  # Switch to simplified workflow
+git add .
+git commit -m "Switch to simplified deployment"
+git push origin main
 ```
 
 ### Manual Deployment
-If you need to deploy manually to another hosting provider:
 ```bash
 npm run build
 # Upload the contents of the `dist` folder to your hosting provider
 ```
 
-### Troubleshooting Deployment Issues
+### Deployment Commands
+```bash
+npm run deploy          # Check deployment readiness
+npm run deploy:check    # Same as above
+npm run deploy:switch   # Switch to alternative workflow
+```
 
-**Error: "Get Pages site failed"**
-- This means GitHub Pages is not enabled for your repository
-- Follow Step 1 above to enable GitHub Pages
-
-**Error: "Not Found" during deployment**
-- Ensure you have the correct permissions in your repository
-- Make sure the repository is public or you have GitHub Pro for private repos with Pages
-
-**Routes not working after deployment**
-- The project includes proper SPA routing configuration for GitHub Pages
-- If you still have issues, check that the base URL is correct in your browser
+### Your Site URL
+After deployment: `https://[your-username].github.io/GameHub/`
 
 ## Features
 

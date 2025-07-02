@@ -1,14 +1,18 @@
 {
-  "name": "web-dev-final-project",
+  "name": "gamehub",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A collection of classic games built with React",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check-deployment": "./check-deployment.sh",
-    "switch-deploy": "./switch-to-simple-deploy.sh"
+    "deploy": "./deploy.sh",
+    "deploy:check": "./deploy.sh check",
+    "deploy:switch": "./deploy.sh switch",
+    "clean": "rm -rf dist node_modules/.vite",
+    "reinstall": "rm -rf node_modules package-lock.json && npm install"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
@@ -20,7 +24,6 @@
     "axios": "^1.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.4.1",
-    "three": "^0.158.0"
+    "react-router-dom": "^7.4.1"
   }
 }
