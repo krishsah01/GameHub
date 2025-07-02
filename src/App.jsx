@@ -9,13 +9,15 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/Login/LoginPage";
 import Snake from "./pages/Snake/Snake";
-import WordleGame from "./pages/Wordle/Wordle";
+import WordleGame from "./pages/Wordle/wordle";
 import Hangman from "./pages/Hangman/App"
 
 
 const App = () => {
+  const basename = import.meta.env.BASE_URL;
+  
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Navigation />
       <div className="app-container">
         <Routes>
