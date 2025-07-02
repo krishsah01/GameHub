@@ -34,10 +34,6 @@ jobs:
         run: |
           npm ci
 
-      - name: Clean install dependencies
-        run: |
-          npm ci
-
       - name: Build
         env:
           REPO_NAME: ${{ github.event.repository.name }}
@@ -46,6 +42,8 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5.0.0
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
