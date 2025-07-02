@@ -72,22 +72,30 @@ npm run check-deployment
 npm run dev
 ```
 
-## 🚨 Troubleshooting
+## 🚨 Troubleshooting "Resource not accessible by integration" Error
 
-**If deployment still fails:**
-1. Make sure your repository is public (or you have GitHub Pro)
-2. Check that you have push permissions
-3. Verify GitHub Pages is enabled with "GitHub Actions" source
-4. Check the Actions tab for detailed error logs
+**This is the most common error** and means GitHub Pages isn't enabled yet.
 
-**If routes don't work after deployment:**
-- The SPA routing is already configured
-- Clear your browser cache
-- Check browser console for any errors
+### Quick Fix:
+1. **Go to your GitHub repository Settings**
+2. **Click "Pages" in the left sidebar**
+3. **Set Source to "GitHub Actions"**
+4. **Save and re-run the workflow**
 
-## 🎉 You're All Set!
+### Alternative Solution:
+If the main workflow continues to fail, switch to the simplified version:
 
-Your GameHub project is now deployment-ready. The build works perfectly, all dependencies are correct, and the GitHub Actions workflow is properly configured. Just enable GitHub Pages in your repository settings and push to deploy!
+```bash
+npm run switch-deploy
+git add .
+git commit -m "Switch to simplified deployment"
+git push origin main
+```
+
+### Still Having Issues?
+- Check the `TROUBLESHOOTING.md` file for detailed solutions
+- Ensure your repository is public (or you have GitHub Pro)
+- Verify you have admin access to the repository
 
 ---
 

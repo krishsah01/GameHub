@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "check-deployment": "./check-deployment.sh"
+    "check-deployment": "./check-deployment.sh",
+    "switch-deploy": "./switch-to-simple-deploy.sh"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",

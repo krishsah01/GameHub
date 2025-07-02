@@ -9,6 +9,8 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
+  deployments: write
 
 concurrency:
   group: "pages"
@@ -41,9 +43,20 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5.0.0
-        with:
-          enablement: true
+        continue-on-error: true
+
+      - name: Check Pages Setup
+        run: |
+          if [ "${{ steps.pages.outcome }}" = "failure" ]; then
+            echo "⚠️ GitHub Pages is not enabled for this repository."
+            echo "Please enable GitHub Pages in your repository settings:"
+            echo "1. Go to Settings → Pages"
+            echo "2. Set Source to 'GitHub Actions'"
+            echo "3. Re-run this workflow"
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
